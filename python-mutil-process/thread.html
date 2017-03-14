@@ -73,6 +73,8 @@
 </a>
 
       <a href="/archives.html">Articles</a>
+      <a href="/categories.html">Categories</a>
+      <a href="/tags.html">Tags</a>
 
 
     </nav>
@@ -109,13 +111,15 @@
 
 
 <h2>使用concurrency.futuresm模块启动多线程/进程</h2>
-<p>```python
- from concurrent.futures import ThreadPoolExecutor
- from concurrent.futures import ProcessPoolExecutor # Windows系统下不能用</p>
-<p>pool = ThreadPoolExecutor(max_worker=2)
- #pool = ProcessPoolExecutor(max_worker=2)
- result = list(pool.map(func,arg)) # 使用map方法简化代码
- ```</p>
+<div class="highlight"><pre><span></span> <span class="kn">from</span> <span class="nn">concurrent.futures</span> <span class="kn">import</span> <span class="n">ThreadPoolExecutor</span>
+ <span class="kn">from</span> <span class="nn">concurrent.futures</span> <span class="kn">import</span> <span class="n">ProcessPoolExecutor</span> <span class="c1"># Windows系统下不能用</span>
+
+ <span class="n">pool</span> <span class="o">=</span> <span class="n">ThreadPoolExecutor</span><span class="p">(</span><span class="n">max_worker</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+ <span class="c1">#pool = ProcessPoolExecutor(max_worker=2)</span>
+ <span class="n">result</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">func</span><span class="p">,</span><span class="n">arg</span><span class="p">))</span> <span class="c1"># 使用map方法简化代码</span>
+</pre></div>
+
+
 <h2>使用multprocessing.Pool模块启动多线程/进程</h2>
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Pool</span><span class="p">,</span><span class="n">cup_count</span> <span class="c1"># 多进程</span>
 <span class="kn">from</span> <span class="nn">multiprocessing.dummy</span> <span class="kn">import</span> <span class="n">Pool</span> <span class="k">as</span> <span class="n">ThreadPool</span> <span class="c1"># 多线程</span>
