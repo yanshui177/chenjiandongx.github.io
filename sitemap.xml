@@ -5,48 +5,48 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://chenjiandongx.com/</loc>
-<lastmod>2017-03-29T00:38:03-00:00</lastmod>
+<lastmod>2017-04-09T11:08:17-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://chenjiandongx.com/archives.html</loc>
-<lastmod>2017-03-29T00:38:03-00:00</lastmod>
+<lastmod>2017-04-09T11:08:17-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://chenjiandongx.com/tags.html</loc>
-<lastmod>2017-03-29T00:38:03-00:00</lastmod>
+<lastmod>2017-04-09T11:08:17-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://chenjiandongx.com/categories.html</loc>
-<lastmod>2017-03-29T00:38:03-00:00</lastmod>
+<lastmod>2017-04-09T11:08:17-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://chenjiandongx.com/Stackoverflow-spider.html</loc>
+<loc>http://chenjiandongx.com/spider/Stackoverflow-spider.html</loc>
 <lastmod>2017-03-29T00:23:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>http://chenjiandongx.com/python-mutil-process-thread.html</loc>
+<loc>http://chenjiandongx.com/python/python-mutil-process-thread.html</loc>
 <lastmod>2017-03-14T21:01:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>http://chenjiandongx.com/bulit-my-blog.html</loc>
+<loc>http://chenjiandongx.com/python/bulit-my-blog.html</loc>
 <lastmod>2017-03-20T17:12:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
@@ -67,15 +67,15 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://chenjiandongx.com/tag/python.html</loc>
-<lastmod>2017-03-29T00:23:00+08:06</lastmod>
+<loc>http://chenjiandongx.com/tag/pelican.html</loc>
+<lastmod>2017-03-20T17:12:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://chenjiandongx.com/tag/pelican.html</loc>
-<lastmod>2017-03-20T17:12:00+08:06</lastmod>
+<loc>http://chenjiandongx.com/tag/python.html</loc>
+<lastmod>2017-03-29T00:23:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
