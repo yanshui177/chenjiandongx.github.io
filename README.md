@@ -1,6 +1,8 @@
-### 个人博客项目  
+# 个人博客项目  
+
+  
 使用 Pelican + Github Pages 搭建自己的第一个博客  
-绑定域名 http://www.chenjiandongx.com  
+绑定域名 [http://www.chenjiandongx.com](http://www.chenjiandongx.com)  
 
 * Pelican的官方文档：[http://docs.getpelican.com/en/stable](http://docs.getpelican.com/en/stable)  
 * Pelican的github地址：[https://github.com/getpelican/pelican](https://github.com/getpelican/pelican)  
