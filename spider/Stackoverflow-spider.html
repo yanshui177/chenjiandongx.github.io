@@ -101,39 +101,51 @@
 
 
   <div>
-    <ul>
-<li>作为一个热爱编程的大学生，怎么能不知道stackoverflow呢，面向stackoverflow也是一种新的编程模式。所以应该对这个网站有所了解，那就写爬虫分析一下吧。  </li>
-<li>在questions页面下选择按vote排序，爬取前20000页，每页将问题数量设置为50，共100W条，（实际上本来是想爬完1300W条的，但100W条后面问题基本上都只有1个或0个回答，那就选取前100W就好吧）  </li>
+    <p>作为一个热爱编程的大学生，怎么能不知道stackoverflow和面向stackoverflow一种编程呢。</p>
+<p>在questions页面下选择按vote排序，爬取前20000页，每页将问题数量设置为50，共 100W条，（实际上本来是想爬完1300W条的，但100W条后面问题基本上都只有1个或0个回答，那就选取前100W就好吧）  </p>
+<ul>
+<li><strong>降序排列了这100W条数据的votes数，生成折线图</strong>  </li>
 </ul>
-<p><strong>按降序排列了这100W条数据的votes数，生成折线图</strong><br>
-<img alt="Votes折线图" src="https://img.js.cn/images/2017/03/28/71354c8fa546aa2b6feb8a928481da98.png"><br>
+<p><img alt="Votes折线图" src="http://oog4yfyu0.bkt.clouddn.com/votes_0.png"><br>
 2k后的问题的votes数基本上就已经在400以下了，接着后面的就基本上是贴地飞行了<br>
 votes数最多 : <a href="http://stackoverflow.com/questions/11227809/why-is-it-faster-to-process-a-sorted-array-than-an-unsorted-array">Why is it faster to process a sorted array than an unsorted array?</a></p>
-<p><strong>votes数的连续分布情况</strong><br>
-<img alt="votes甘特图" src="https://img.js.cn/images/2017/03/28/8f874409b5d0018587f08cda7f876499.png"><br>
+<ul>
+<li><strong>votes数的连续分布情况</strong>  </li>
+</ul>
+<p><img alt="votes甘特图" src="http://oog4yfyu0.bkt.clouddn.com/votes_1.png"><br>
 可见最多的还是集中在1-2K之间,从6k开始基本上就断层了</p>
-<p><strong>按降序排列了这100W条数据的answers数，生成折线图</strong><br>
-<img alt="answers折线图" src="https://img.js.cn/images/2017/03/28/6a93f6b13214893b12643f4254cf348e.png"><br>
-很明显，2k之后的answers数基本上就小于20条了<br>
+<ul>
+<li>
+<p><strong>降序排列了这100W条数据的answers数，生成折线图</strong><br>
+<img alt="answers折线图" src="http://oog4yfyu0.bkt.clouddn.com/answers_0.png"><br>
+很明显2k之后的answers数基本上就小于20条了<br>
 answers数最多: <a href="http://stackoverflow.com/questions/184618/what-is-the-best-comment-in-source-code-you-have-ever-encountered">What is the best comment in source code you have ever encountered? [closed]</a></p>
-<p><strong>answers数的连续分布情况</strong><br>
-<img alt="answers甘特图" src="https://img.js.cn/images/2017/03/28/d2539af43a56b6b671bb76375cf12eb7.png"><br>
-150后也就断层了，实际上能达到这样的回答数极少</p>
-<p><strong>按降序排列了这100W条数据的views数，生成折线图</strong><br>
-<img alt="views折线图" src="https://img.js.cn/images/2017/03/28/3915c8a7667c45be4b53b7c9682da7e3.png"><br>
+</li>
+<li>
+<p><strong>answers数的连续分布情况</strong>  </p>
+</li>
+</ul>
+<p><img alt="answers甘特图" src="http://oog4yfyu0.bkt.clouddn.com/answers_1.png"><br>
+150 后也就断层了，实际上能达到这样的回答数极少</p>
+<ul>
+<li><strong>降序排列了这100W条数据的views数，生成折线图</strong>  </li>
+</ul>
+<p><img alt="views折线图" src="http://oog4yfyu0.bkt.clouddn.com/views_0.png"><br>
 最高达到了4.5m，10000以后的基本上就不足3000了<br>
 views数最多: <a href="http://stackoverflow.com/questions/927358/how-to-undo-last-commits-in-git">How to undo last commit(s) in Git?</a></p>
-<p><strong>views数的连续分布情况</strong><br>
-<img alt="views甘特图" src="https://img.js.cn/images/2017/03/28/1194f44aac0bc1df279cf24a83e02fe8.png"></p>
+<ul>
+<li><strong>views数的连续分布情况</strong>  </li>
+</ul>
+<p><img alt="views甘特图" src="http://oog4yfyu0.bkt.clouddn.com/views_1.png"></p>
 <h3>再看看votes，views，answers三者的散点图对应情况</h3>
 <ul>
-<li>votes - views<br>
-<img alt="votes-views散点图" src="https://img.js.cn/images/2017/03/28/3ba11c53dfeb889efd976a4304dbb1c9.png">  </li>
-<li>votes - answers<br>
-<img alt="votes-answers散点图" src="https://img.js.cn/images/2017/03/28/e8b6aa0297cfd49a880ec625c2ca75f8.png">  </li>
-<li>views - answers<br>
-<img alt="views-answers散点图" src="https://img.js.cn/images/2017/03/28/03e946983fc9468a5829946028d1474f.png">  </li>
+<li>votes - views  </li>
 </ul>
+<p><img alt="votes-views散点图" src="http://oog4yfyu0.bkt.clouddn.com/views_votes.png"><br>
+* votes - answers  </p>
+<p><img alt="votes-answers散点图" src="http://oog4yfyu0.bkt.clouddn.com/answers_votes.png">
+* views - answers  </p>
+<p><img alt="views-answers散点图" src="http://oog4yfyu0.bkt.clouddn.com/view_answers.png">  </p>
 <p>总的来说，这三者对应关系类似于一个金字塔。三个图基本上都是左下角靠近原点的区域被填满，也就是说绝对大部分的问题的votes，answers和views都是属于最下层的。高质量活跃的问题是处于金字塔顶端的。三者的最高数好像也没特别明显的对应关系，且三者的最高数都不是同一个问题。</p>
 <p>根据所有问题的tags提取出总量前200的关键词（前50条如下），第1名是c#，python排在第5</p>
 <div class="highlight"><pre><span></span><span class="p">(</span><span class="s1">&#39;c#&#39;</span><span class="p">,</span> <span class="mi">94614</span><span class="p">),</span>
@@ -190,8 +202,8 @@ views数最多: <a href="http://stackoverflow.com/questions/927358/how-to-undo-l
 </pre></div>
 
 
-<p><strong>这样看好像不太直观，所以就把它根据词频生成了词云</strong><br>
-<img alt="词云" src="https://img.js.cn/images/2017/03/28/fadffe93e3138c566b44e30721aac845.jpg"></p>
+<p><strong>这样看好像不太直观，所以就把它根据词频生成了词云</strong>  </p>
+<p><img alt="词云" src="http://oog4yfyu0.bkt.clouddn.com/word_cloud.jpg"></p>
 <h2>因为是用python写的爬虫，所以重点来分析下Python类的问答</h2>
 <h3>votes数前10</h3>
 <ul>
