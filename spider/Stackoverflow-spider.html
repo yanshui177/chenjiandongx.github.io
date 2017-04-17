@@ -39,7 +39,7 @@
 <meta property="og:url" content="http://chenjiandongx.com/spider/Stackoverflow-spider.html"/>
 <meta property="og:type" content="article"/>
 <meta property="article:published_time" content="2017-03-29 00:23:00+08:00"/>
-<meta property="article:modified_time" content="2017-04-14 18:54:00+08:00"/>
+<meta property="article:modified_time" content="2017-04-17 23:50:00+08:00"/>
 <meta property="article:author" content="http://chenjiandongx.com/author/chenjiandongx.html">
 <meta property="article:section" content="Spider"/>
 <meta property="article:tag" content="python"/>
@@ -101,92 +101,93 @@
 
 
   <div>
-    <p>作为一个热爱编程的大学生，怎么能不知道stackoverflow和面向stackoverflow一种编程呢。</p>
-<p>在questions页面下选择按vote排序，爬取前20000页，每页将问题数量设置为50，共 100W条，（实际上本来是想爬完1300W条的，但100W条后面问题基本上都只有1个或0个回答，那就选取前100W就好吧）  </p>
-<p><strong>降序排列了这100W条数据的votes数，生成折线图</strong>  </p>
+    <p>作为一个热爱编程的大学生，怎么能不知道面向stackoverflow编程呢。</p>
+<p>打开stackoverflow主页，在questions页面下选择按vote排序，爬取前20000页，每页将问题数量设置为50，共100W条，（实际上本来是想爬完1300W条的，但100W条后面问题基本上都只有1个或0个回答，那就选取前100W就好吧）  </p>
+<h2>对爬取数据进行简单分析</h2>
+<h3>降序排列了这100W条数据的votes数，生成折线图</h3>
 <p><img alt="Votes折线图" src="http://oog4yfyu0.bkt.clouddn.com/votes_0.png"><br>
 2k后的问题的votes数基本上就已经在400以下了，接着后面的就基本上是贴地飞行了<br>
 votes数最多 : <a href="http://stackoverflow.com/questions/11227809/why-is-it-faster-to-process-a-sorted-array-than-an-unsorted-array">Why is it faster to process a sorted array than an unsorted array?</a></p>
-<p><strong>votes数的连续分布情况</strong>  </p>
+<h3>votes数的连续分布情况</h3>
 <p><img alt="votes甘特图" src="http://oog4yfyu0.bkt.clouddn.com/votes_1.png"><br>
-可见最多的还是集中在1-2K之间,从6k开始基本上就断层了</p>
-<p><strong>降序排列了这100W条数据的answers数，生成折线图</strong>  </p>
+可见最多的还是集中在1-2K之间,从6k开始基本上就断层了  </p>
+<h3>降序排列了这100W条数据的answers数，生成折线图</h3>
 <p><img alt="answers折线图" src="http://oog4yfyu0.bkt.clouddn.com/answers_0.png"><br>
 很明显2k之后的answers数基本上就小于20条了<br>
-answers数最多: <a href="http://stackoverflow.com/questions/184618/what-is-the-best-comment-in-source-code-you-have-ever-encountered">What is the best comment in source code you have ever encountered? [closed]</a></p>
-<p><strong>answers数的连续分布情况</strong>  </p>
+answers数最多: <a href="http://stackoverflow.com/questions/184618/what-is-the-best-comment-in-source-code-you-have-ever-encountered">What is the best comment in source code you have ever encountered? [closed]</a>  </p>
+<h3>answers数的连续分布情况</h3>
 <p><img alt="answers甘特图" src="http://oog4yfyu0.bkt.clouddn.com/answers_1.png"><br>
-150 后也就断层了，实际上能达到这样的回答数极少</p>
-<p><strong>降序排列了这100W条数据的views数，生成折线图</strong>  </p>
+150后也就断层了，实际上能达到这样的回答数极少  </p>
+<h3>降序排列了这100W条数据的views数，生成折线图</h3>
 <p><img alt="views折线图" src="http://oog4yfyu0.bkt.clouddn.com/views_0.png"><br>
 最高达到了4.5m，10000以后的基本上就不足3000了<br>
 views数最多: <a href="http://stackoverflow.com/questions/927358/how-to-undo-last-commits-in-git">How to undo last commit(s) in Git?</a></p>
-<p><strong>views数的连续分布情况</strong>  </p>
+<h3>views数的连续分布情况</h3>
 <p><img alt="views甘特图" src="http://oog4yfyu0.bkt.clouddn.com/views_1.png"></p>
 <h3>再看看votes，views，answers三者的散点图对应情况</h3>
-<p><strong>votes - views</strong>  </p>
-<p><img alt="votes-views散点图" src="http://oog4yfyu0.bkt.clouddn.com/views_votes.png"> </p>
-<p><strong>votes - answers</strong>  </p>
-<p><img alt="votes-answers散点图" src="http://oog4yfyu0.bkt.clouddn.com/answers_votes.png">  </p>
-<p><strong>views - answers</strong>  </p>
+<h4>votes - views</h4>
+<p><img alt="votes-views散点图" src="http://oog4yfyu0.bkt.clouddn.com/views_votes.png">  </p>
+<h4>votes - answers</h4>
+<p><img alt="votes-answers散点图" src="http://oog4yfyu0.bkt.clouddn.com/answers_votes.png"></p>
+<h4>views - answers</h4>
 <p><img alt="views-answers散点图" src="http://oog4yfyu0.bkt.clouddn.com/view_answers.png">  </p>
 <p>总的来说，这三者对应关系类似于一个金字塔。三个图基本上都是左下角靠近原点的区域被填满，也就是说绝对大部分的问题的votes，answers和views都是属于最下层的。高质量活跃的问题是处于金字塔顶端的。三者的最高数好像也没特别明显的对应关系，且三者的最高数都不是同一个问题。</p>
 <p>根据所有问题的tags提取出总量前200的关键词（前50条如下），第1名是c#，python排在第5</p>
-<div class="highlight"><pre><span></span>(&#39;c#&#39;, 94614),
-(&#39;java&#39;, 93244),
-(&#39;javascript&#39;, 76722),
-(&#39;android&#39;, 69321),
-(&#39;python&#39;, 62502),
-(&#39;c++&#39;, 58173),
-(&#39;php&#39;, 42596),
-(&#39;ios&#39;, 37773),
-(&#39;jquery&#39;, 37405),
-(&#39;.net&#39;, 36180),
-(&#39;html&#39;, 28536),
-(&#39;css&#39;, 26174),
-(&#39;c&#39;, 24699),
-(&#39;objective-c&#39;, 23253),
-(&#39;iphone&#39;, 22171),
-(&#39;ruby-on-rails&#39;, 20143),
-(&#39;sql&#39;, 19171),
-(&#39;asp.net&#39;, 18060),
-(&#39;mysql&#39;, 17559),
-(&#39;ruby&#39;, 16397),
-(&#39;r&#39;, 15670),
-(&#39;git&#39;, 13139),
-(&#39;linux&#39;, 13080),
-(&#39;asp.net-mvc&#39;, 12857),
-(&#39;angularjs&#39;, 12606),
-(&#39;sql-server&#39;, 12473),
-(&#39;node.js&#39;, 12212),
-(&#39;django&#39;, 11576),
-(&#39;arrays&#39;, 11006),
-(&#39;algorithm&#39;, 10959),
-(&#39;wpf&#39;, 10631),
-(&#39;performance&#39;, 10619),
-(&#39;xcode&#39;, 10613),
-(&#39;string&#39;, 10426),
-(&#39;windows&#39;, 10132),
-(&#39;eclipse&#39;, 10117),
-(&#39;scala&#39;, 9942),
-(&#39;regex&#39;, 9685),
-(&#39;multithreading&#39;, 9601),
-(&#39;json&#39;, 9266),
-(&#39;swift&#39;, 8950),
-(&#39;c++11&#39;, 8939),
-(&#39;haskell&#39;, 8823),
-(&#39;osx&#39;, 8159),
-(&#39;visual-studio&#39;, 8140),
-(&#39;html5&#39;, 7627),
-(&#39;database&#39;, 7567),
-(&#39;xml&#39;, 7478),
-(&#39;spring&#39;, 7464),
-(&#39;unit-testing&#39;, 7253),
-(&#39;bash&#39;, 6825)
+<div class="highlight"><pre><span></span><span class="p">(</span><span class="s1">&#39;c#&#39;</span><span class="p">,</span> <span class="mi">94614</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;java&#39;</span><span class="p">,</span> <span class="mi">93244</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;javascript&#39;</span><span class="p">,</span> <span class="mi">76722</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;android&#39;</span><span class="p">,</span> <span class="mi">69321</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;python&#39;</span><span class="p">,</span> <span class="mi">62502</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;c++&#39;</span><span class="p">,</span> <span class="mi">58173</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;php&#39;</span><span class="p">,</span> <span class="mi">42596</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;ios&#39;</span><span class="p">,</span> <span class="mi">37773</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;jquery&#39;</span><span class="p">,</span> <span class="mi">37405</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;.net&#39;</span><span class="p">,</span> <span class="mi">36180</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;html&#39;</span><span class="p">,</span> <span class="mi">28536</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;css&#39;</span><span class="p">,</span> <span class="mi">26174</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="mi">24699</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;objective-c&#39;</span><span class="p">,</span> <span class="mi">23253</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;iphone&#39;</span><span class="p">,</span> <span class="mi">22171</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;ruby-on-rails&#39;</span><span class="p">,</span> <span class="mi">20143</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;sql&#39;</span><span class="p">,</span> <span class="mi">19171</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;asp.net&#39;</span><span class="p">,</span> <span class="mi">18060</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;mysql&#39;</span><span class="p">,</span> <span class="mi">17559</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;ruby&#39;</span><span class="p">,</span> <span class="mi">16397</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="mi">15670</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;git&#39;</span><span class="p">,</span> <span class="mi">13139</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;linux&#39;</span><span class="p">,</span> <span class="mi">13080</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;asp.net-mvc&#39;</span><span class="p">,</span> <span class="mi">12857</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;angularjs&#39;</span><span class="p">,</span> <span class="mi">12606</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;sql-server&#39;</span><span class="p">,</span> <span class="mi">12473</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;node.js&#39;</span><span class="p">,</span> <span class="mi">12212</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;django&#39;</span><span class="p">,</span> <span class="mi">11576</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;arrays&#39;</span><span class="p">,</span> <span class="mi">11006</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;algorithm&#39;</span><span class="p">,</span> <span class="mi">10959</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;wpf&#39;</span><span class="p">,</span> <span class="mi">10631</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;performance&#39;</span><span class="p">,</span> <span class="mi">10619</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;xcode&#39;</span><span class="p">,</span> <span class="mi">10613</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">,</span> <span class="mi">10426</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;windows&#39;</span><span class="p">,</span> <span class="mi">10132</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;eclipse&#39;</span><span class="p">,</span> <span class="mi">10117</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;scala&#39;</span><span class="p">,</span> <span class="mi">9942</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;regex&#39;</span><span class="p">,</span> <span class="mi">9685</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;multithreading&#39;</span><span class="p">,</span> <span class="mi">9601</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;json&#39;</span><span class="p">,</span> <span class="mi">9266</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;swift&#39;</span><span class="p">,</span> <span class="mi">8950</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;c++11&#39;</span><span class="p">,</span> <span class="mi">8939</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;haskell&#39;</span><span class="p">,</span> <span class="mi">8823</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;osx&#39;</span><span class="p">,</span> <span class="mi">8159</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;visual-studio&#39;</span><span class="p">,</span> <span class="mi">8140</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;html5&#39;</span><span class="p">,</span> <span class="mi">7627</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;database&#39;</span><span class="p">,</span> <span class="mi">7567</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;xml&#39;</span><span class="p">,</span> <span class="mi">7478</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;spring&#39;</span><span class="p">,</span> <span class="mi">7464</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;unit-testing&#39;</span><span class="p">,</span> <span class="mi">7253</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;bash&#39;</span><span class="p">,</span> <span class="mi">6825</span><span class="p">)</span>
 </pre></div>
 
 
-<p><strong>这样看好像不太直观，所以就把它根据词频生成了词云</strong>  </p>
+<h3>这样看好像不太直观，所以就把它根据词频生成了词云</h3>
 <p><img alt="词云" src="http://oog4yfyu0.bkt.clouddn.com/word_cloud.jpg"></p>
 <h2>因为是用python写的爬虫，所以重点来分析下Python类的问答</h2>
 <h3>votes数前10</h3>
@@ -229,14 +230,14 @@ views数最多: <a href="http://stackoverflow.com/questions/927358/how-to-undo-l
 <li>1682307 : <a href="http://stackoverflow.com/questions/3294889/iterating-over-dictionaries-using-for-loops-in-python">Iterating over dictionaries using 'for' loops in Python</a></li>
 <li>1569205 : <a href="http://stackoverflow.com/questions/1712227/how-to-get-the-size-of-a-list">How to get the size of a list</a></li>
 <li>1554755 : <a href="http://stackoverflow.com/questions/4750806/how-do-i-install-pip-on-windows">How do I install pip on Windows?</a></li>
-<li>515505 : <a href="http://stackoverflow.com/questions/176918/finding-the-index-of-an-item-given-a-list-containing-it-in-python">Finding the index of an item given a list containing it in Python</a>  </li>
+<li>1515505 : <a href="http://stackoverflow.com/questions/176918/finding-the-index-of-an-item-given-a-list-containing-it-in-python">Finding the index of an item given a list containing it in Python</a>  </li>
 </ul>
 <h3>三者的前十中有两个问题是完全重叠的，分别是</h3>
 <ul>
 <li><a href="http://stackoverflow.com/questions/82831/how-do-i-check-whether-a-file-exists-using-python">How do I check whether a file exists using Python?</a></li>
 <li><a href="http://stackoverflow.com/questions/89228/calling-an-external-command-in-python">Calling an external command in Python</a></li>
 </ul>
-<h2>Github源码 :</h2>
+<h2>Github源码</h2>
 <ul>
 <li><a href="https://github.com/chenjiandongx/stackoverflow">爬取Stackoverflow100万条问答</a>  </li>
 <li>欢迎star和folk</li>
